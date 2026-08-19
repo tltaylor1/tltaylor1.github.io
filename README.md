@@ -51,6 +51,8 @@ and a considered exclusion look identical from outside.
 
 ## The arc
 
+![The eight phases as a timeline, with the current position marked](diagrams/phase-journey-sketch.svg)
+
 Eight phases: design; the application; local Kubernetes; the cloud
 enclave as code; managed Kubernetes; the security-gated pipeline;
 runtime detection; human-triggered remediation last, because write
