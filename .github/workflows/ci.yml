@@ -33,7 +33,7 @@ jobs:
         run: git ls-files -z "*.md" | xargs -0 "$RUNNER_TEMP/vale"
       - name: forbid deferred-work markers
         run: |
-          ! grep -rnE "\b(TODO|FIXME|HACK|XXX)\b" --exclude-dir=.git --exclude=.pre-commit-config.yaml .
+          ! grep -rnE "\b(TODO|FIXME|HACK|XXX)\b" --exclude-dir=.git --exclude-dir=.github --exclude=.pre-commit-config.yaml .
 
   links:
     runs-on: ubuntu-latest
