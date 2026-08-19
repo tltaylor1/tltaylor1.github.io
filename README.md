@@ -20,7 +20,6 @@ https://tltaylor1.github.io once public.
 | [role-call](https://github.com/tltaylor1/role-call) | A governance tool for non-human identities: import cloud identity snapshots, derive state from history, put owners and review campaigns on the record. The program's flagship: building in motion, with the decision record growing under load |
 | [secure-expense-mvp](https://github.com/tltaylor1/secure-expense-mvp) | A small expense tool, finished and hardened: every request-path gate tied to the failure it prevents, mutation-tested, complete on purpose |
 | [build-guidelines](https://github.com/tltaylor1/build-guidelines) | The doctrine: standards where every rule records the incident that produced it, the enforcement mapping, and the promotion path from human check to automated gate |
-| [sample-diagrams](https://github.com/tltaylor1/sample-diagrams) | Hand-drawn systems diagrams under an editorial doctrine: a complexity budget, one accent, done when nothing can be removed |
 | aws-platform | Arrives with Phase 3: generic Terraform modules for an organization, its baseline, account vending, and keyless deploy federation |
 
 ## The program documents
