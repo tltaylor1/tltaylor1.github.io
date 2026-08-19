@@ -1,0 +1,53 @@
+# The program repository's gates: the writing rules and the link check
+# over the documents, and the marker sweep. Tools arrive from their
+# canonical releases and are checksum-verified before they run, the
+# same bar as every repository in the program.
+name: checks
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  writing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install vale, verified
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -sSfL --retry 3 --retry-delay 2 --retry-connrefused -o vale.tar.gz https://github.com/errata-ai/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz
+          echo "a903f1f60c3293fac643e0137f599a462881cc691ee19d6120dcfc786f1be86d  vale.tar.gz" | sha256sum -c -
+          tar -xzf vale.tar.gz vale
+      - name: writing rules
+        run: git ls-files -z "*.md" | xargs -0 "$RUNNER_TEMP/vale"
+      - name: forbid deferred-work markers
+        run: |
+          ! grep -rnE "\b(TODO|FIXME|HACK|XXX)\b" --exclude-dir=.git --exclude=.pre-commit-config.yaml .
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install lychee, verified
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -sSfL --retry 3 --retry-delay 2 --retry-connrefused -o ly.tar.gz https://github.com/lycheeverse/lychee/releases/download/lychee-v0.24.2/lychee-x86_64-unknown-linux-gnu.tar.gz
+          echo "1f4e0ef7f6554a6ed33dd7ac144fb2e1bbed98598e7af973042fc5cd43951c9a  ly.tar.gz" | sha256sum -c -
+          tar -xzf ly.tar.gz
+      # Offline on purpose: the pipeline checks the cross-references
+      # inside this repository and fetches nothing.
+      - name: check internal links
+        run: git ls-files -z "*.md" "*.html" | xargs -0 "$RUNNER_TEMP/lychee-x86_64-unknown-linux-gnu/lychee" --offline --no-progress --include-fragments

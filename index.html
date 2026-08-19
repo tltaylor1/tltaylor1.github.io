@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paper-trail</title>
+<!-- Self-contained on purpose: no scripts, no external fonts, no
+     trackers, nothing fetched from anywhere. The page is the program's
+     front door and follows the program's rules. -->
+<style>
+  :root { --ink: #24292e; --quiet: #57606a; --line: #d0d7de; --accent: #b04f2e; --paper: #f6f5f2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         color: var(--ink); background: var(--paper); line-height: 1.55; }
+  main { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  h1 { font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+       font-size: 1.6rem; letter-spacing: 0.04em; margin: 0 0 0.25rem; }
+  .thesis { color: var(--quiet); margin: 0 0 2.5rem; }
+  h2 { font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+       font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+       color: var(--quiet); margin: 2.75rem 0 1rem; }
+  .part { border: 1px solid var(--line); background: #fff; border-radius: 6px;
+          padding: 0.9rem 1.1rem; margin-bottom: 0.75rem; }
+  .part h3 { margin: 0 0 0.25rem; font-size: 1rem; }
+  .part p { margin: 0; color: var(--quiet); font-size: 0.92rem; }
+  .part.accent { border-color: var(--accent); background: rgba(176,79,46,0.04); }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .phases { border-left: 2px solid var(--line); margin: 0; padding: 0 0 0 1.25rem; list-style: none; }
+  .phases li { margin: 0.45rem 0; color: var(--quiet); font-size: 0.95rem; }
+  .phases li.done { color: var(--ink); }
+  .phases li.now { color: var(--accent); font-weight: 600; }
+  .method p { margin: 0.6rem 0; }
+  footer { margin-top: 3.5rem; color: var(--quiet); font-size: 0.85rem;
+           font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<main>
+  <h1>paper-trail</h1>
+  <p class="thesis">A security engineering program, built in public, by
+  one person and a governed coding agent. Every claim carries its
+  record: decisions with their rejected alternatives, controls with
+  their proving tests, releases with their provenance, the agent's
+  failures with what caught them.</p>
+
+  <h2>The parts</h2>
+  <div class="part accent">
+    <h3><a href="https://github.com/tltaylor1/role-call">role-call</a></h3>
+    <p>Governance for non-human identities: import cloud identity
+    snapshots, derive state from history rather than storing status,
+    put owners and review campaigns on the record. Building in motion:
+    fifty recorded decisions and the record of what the coding agent
+    got wrong, kept on purpose.</p>
+  </div>
+  <div class="part">
+    <h3><a href="https://github.com/tltaylor1/secure-expense-mvp">secure-expense-mvp</a></h3>
+    <p>A small expense tool, finished and hardened: every request-path
+    gate tied to the failure it prevents, mutation-tested, deliberately
+    complete.</p>
+  </div>
+  <div class="part">
+    <h3><a href="https://github.com/tltaylor1/build-guidelines">build-guidelines</a></h3>
+    <p>The doctrine: standards where every rule records the incident
+    that produced it, and the promotion path from human check to
+    automated gate.</p>
+  </div>
+  <div class="part">
+    <h3><a href="https://github.com/tltaylor1/sample-diagrams">sample-diagrams</a></h3>
+    <p>Hand-drawn systems diagrams under an editorial doctrine: a
+    complexity budget, one accent, done when nothing can be removed.</p>
+  </div>
+  <div class="part">
+    <h3>aws-platform</h3>
+    <p>Arrives with Phase 3: generic Terraform modules for an
+    organization, its baseline, account vending, and keyless deploy
+    federation.</p>
+  </div>
+
+  <h2>The program documents</h2>
+  <div class="part">
+    <p><a href="PHASE-3.md">The current phase's plan</a>, fixed before
+    the work &middot; <a href="MONITORING.md">monitoring by layer, each
+    signal with its listener</a> &middot; <a href="BCDR.md">recovery,
+    split between rebuildable and stateful, with drills that
+    expire</a> &middot; <a href="PIPELINES.md">how every repository is
+    gated</a></p>
+  </div>
+
+  <h2>The method</h2>
+  <div class="method">
+    <p>Design before code, the plan published before building starts.
+    Every change through a pull request: the agent proposes under its
+    own installed-app identity, required checks gate, a human approving
+    review is required, and the merge is the review's receipt.</p>
+    <p>Every figure a document states is asserted against the running
+    system or gated against its source. Every incident becomes a rule;
+    the second identical hand-fix becomes automation. What is
+    deliberately absent is recorded beside what exists.</p>
+  </div>
+
+  <h2>The arc</h2>
+  <ol class="phases">
+    <li class="done">Design, before any code</li>
+    <li class="done">The application, twelve review-gated subphases</li>
+    <li class="done">Local Kubernetes: admission, network policy, identity</li>
+    <li class="now">The cloud enclave as code, in progress</li>
+    <li>Managed Kubernetes</li>
+    <li>The security-gated pipeline, proven by a planted flaw</li>
+    <li>Runtime detection and response</li>
+    <li>Human-triggered remediation, last, because write access is earned</li>
+  </ol>
+
+  <footer>phases one and two are tagged v0.2.0 with build provenance
+  verifiable against the public transparency log</footer>
+</main>
+</body>
+</html>

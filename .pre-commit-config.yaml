@@ -1,0 +1,23 @@
+# Commit-time gates, matching the program's other repositories: the
+# secret scan, the writing rules, and the deferred-work marker check.
+# CI runs the same checks, which catches any commit made without the
+# hooks installed.
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks secret scan
+        entry: gitleaks git --pre-commit --staged --redact --no-banner
+        language: system
+        pass_filenames: false
+      - id: vale
+        name: vale writing rules
+        entry: vale
+        language: system
+        types: [markdown]
+      - id: no-deferred-work-markers
+        name: forbid deferred-work markers
+        entry: '\b(TODO|FIXME|HACK|XXX)\b'
+        language: pygrep
+        types: [text]
+        exclude: '^\.pre-commit-config\.yaml$'
