@@ -1,11 +1,14 @@
-# paper-trail
+# control-plane
 
 A security engineering program, built in public, by one person and a
-governed coding agent. The name is the thesis: every claim in this
-program carries its record, decisions with their rejected
-alternatives, controls with their proving tests, releases with their
-provenance attestations, the agent's failures with what caught them,
-and the human's own account posture attested rather than assumed.
+governed coding agent. The name is the thesis: the human is the
+control plane, directing the workloads without doing the work packet
+by packet, through architecture, standards, and gates the agent
+cannot route around. Every claim carries its record: decisions with
+their rejected alternatives, controls with their proving tests,
+releases with their provenance attestations, the agent's failures
+with what caught them, and the human's own account posture attested
+rather than assumed.
 
 The rendered site is this repository, served at
 https://tltaylor1.github.io once public.
