@@ -1,17 +1,29 @@
 # control-plane
 
-A security engineering program, built in public, by one person and a
-governed coding agent. The name is the thesis: the human is the
-control plane, directing the workloads without doing the work packet
-by packet, through architecture, standards, and gates the agent
-cannot route around. Every claim carries its record: decisions with
-their rejected alternatives, controls with their proving tests,
-releases with their provenance attestations, the agent's failures
-with what caught them, and the human's own account posture attested
-rather than assumed.
+One person's public record of building a security engineering
+program with an AI agent doing the typing and a human deciding
+everything.
+
+It exists to show, with evidence rather than claims, that agent-built
+software can be held to a professional standard: every decision
+recorded with what was rejected, every control proven by a test,
+every release attested, and every agent mistake written down with
+what caught it.
+
+What is in it:
+
+- **role-call**: an inventory and review tool for cloud service
+  accounts and roles. Import snapshots, see who owns what, run review
+  campaigns. 149 tests, 55 recorded decisions, five outside ratings.
+- **build-doctrine**: the rulebook the program builds under, and the
+  commands that score any repository against it.
+- **secure-expense-mvp**: a small finished application, hardened and
+  mutation-tested, kept as the reference.
+- **The program documents**: what is monitored, how recovery works,
+  how every repository is gated, and the next phase's plan.
 
 The rendered site is this repository, served at
-https://tltaylor1.github.io once public.
+https://tltaylor1.github.io.
 
 ## The parts
 
@@ -24,29 +36,32 @@ https://tltaylor1.github.io once public.
 
 ## The program documents
 
-The concerns that span repositories live here, not buried in any one
-of them:
+The things one repository cannot answer for, kept here:
 
-- [PHASE-3.md](PHASE-3.md), the current phase's public plan, fixed
-  before the work.
-- [MONITORING.md](MONITORING.md), what is watched at each layer, its
-  signal, and who hears it, with unfilled layers stating themselves.
-- [BCDR.md](BCDR.md), recovery split between rebuildable-from-code and
-  actual state, with drills that carry their last-run date and expire.
-- [PIPELINES.md](PIPELINES.md), how every repository is gated, and the
-  infrastructure-as-code posture.
+- **[The plan](PHASE-3.md)** for the current phase, written and
+  published before the work starts, so a change of plan is a
+  recorded decision and not a quiet edit.
+- **[Monitoring](MONITORING.md)**: what is watched at each layer,
+  what signal it gives, and who hears it. A layer with nothing
+  watching it says so.
+- **[Recovery](BCDR.md)**: what can be rebuilt from code and what is
+  real state that must be backed up. Each recovery drill carries the
+  date it last ran and goes stale on a schedule.
+- **[Pipelines](PIPELINES.md)**: how every repository blocks a bad
+  change, and how the tools that do the blocking are themselves
+  verified before they run.
 
-## The method, in five lines
+## The method
 
-Design before code, with the plan fixed and published before building
-starts. Every change through a pull request: the agent proposes under
-its own installed-app identity, required checks gate, a human
-approving review is required, and the merge is the review's receipt.
-Every figure a document states is asserted against the running system
-or gated against its source. Every incident becomes a rule, and the
-second identical hand-fix becomes automation. What is deliberately
-absent is recorded next to what exists, because an undocumented gap
-and a considered exclusion look identical from outside.
+- Design first. The plan is public before the first line of code.
+- Every change is a pull request: the agent proposes under its own
+  identity, the checks must pass, a human must approve, and the
+  merge is the receipt.
+- Every figure in a document is checked against the running system,
+  or a test fails.
+- Every mistake becomes a rule, and the second time a fix is done by
+  hand it becomes automation.
+- What was left out on purpose is written down beside what was built.
 
 ## The arc
 
