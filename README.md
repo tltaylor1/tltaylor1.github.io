@@ -36,29 +36,32 @@ https://tltaylor1.github.io.
 
 ## The program documents
 
-The concerns that span repositories live here, not buried in any one
-of them:
+The things one repository cannot answer for, kept here:
 
-- [PHASE-3.md](PHASE-3.md), the current phase's public plan, fixed
-  before the work.
-- [MONITORING.md](MONITORING.md), what is watched at each layer, its
-  signal, and who hears it, with unfilled layers stating themselves.
-- [BCDR.md](BCDR.md), recovery split between rebuildable-from-code and
-  actual state, with drills that carry their last-run date and expire.
-- [PIPELINES.md](PIPELINES.md), how every repository is gated, and the
-  infrastructure-as-code posture.
+- **[The plan](PHASE-3.md)** for the current phase, written and
+  published before the work starts, so a change of plan is a
+  recorded decision and not a quiet edit.
+- **[Monitoring](MONITORING.md)**: what is watched at each layer,
+  what signal it gives, and who hears it. A layer with nothing
+  watching it says so.
+- **[Recovery](BCDR.md)**: what can be rebuilt from code and what is
+  real state that must be backed up. Each recovery drill carries the
+  date it last ran and goes stale on a schedule.
+- **[Pipelines](PIPELINES.md)**: how every repository blocks a bad
+  change, and how the tools that do the blocking are themselves
+  verified before they run.
 
-## The method, in five lines
+## The method
 
-Design before code, with the plan fixed and published before building
-starts. Every change through a pull request: the agent proposes under
-its own installed-app identity, required checks gate, a human
-approving review is required, and the merge is the review's receipt.
-Every figure a document states is asserted against the running system
-or gated against its source. Every incident becomes a rule, and the
-second identical hand-fix becomes automation. What is deliberately
-absent is recorded next to what exists, because an undocumented gap
-and a considered exclusion look identical from outside.
+- Design first. The plan is public before the first line of code.
+- Every change is a pull request: the agent proposes under its own
+  identity, the checks must pass, a human must approve, and the
+  merge is the receipt.
+- Every figure in a document is checked against the running system,
+  or a test fails.
+- Every mistake becomes a rule, and the second time a fix is done by
+  hand it becomes automation.
+- What was left out on purpose is written down beside what was built.
 
 ## The arc
 

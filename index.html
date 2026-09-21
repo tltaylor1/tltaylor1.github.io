@@ -88,24 +88,39 @@
 
   <h2>The program documents</h2>
   <div class="part">
-    <p><a href="PHASE-3.md">The current phase's plan</a>, fixed before
-    the work &middot; <a href="MONITORING.md">monitoring by layer, each
-    signal with its listener</a> &middot; <a href="BCDR.md">recovery,
-    split between rebuildable and stateful, with drills that
-    expire</a> &middot; <a href="PIPELINES.md">how every repository is
-    gated</a></p>
+    <p>The things one repository cannot answer for, kept here:</p>
+    <ul>
+      <li><b><a href="PHASE-3.md">The plan</a></b> for the current
+      phase, written and published before the work starts, so a change
+      of plan is a recorded decision and not a quiet edit.</li>
+      <li><b><a href="MONITORING.md">Monitoring</a></b>: what is
+      watched at each layer, what signal it gives, and who hears it. A
+      layer with nothing watching it says so.</li>
+      <li><b><a href="BCDR.md">Recovery</a></b>: what can be rebuilt
+      from code and what is real state that must be backed up. Each
+      recovery drill carries the date it last ran and goes stale on a
+      schedule.</li>
+      <li><b><a href="PIPELINES.md">Pipelines</a></b>: how every
+      repository blocks a bad change, and how the tools that do the
+      blocking are themselves verified before they run.</li>
+    </ul>
   </div>
 
   <h2>The method</h2>
   <div class="method">
-    <p>Design before code, the plan published before building starts.
-    Every change through a pull request: the agent proposes under its
-    own installed-app identity, required checks gate, a human approving
-    review is required, and the merge is the review's receipt.</p>
-    <p>Every figure a document states is asserted against the running
-    system or gated against its source. Every incident becomes a rule;
-    the second identical hand-fix becomes automation. What is
-    deliberately absent is recorded beside what exists.</p>
+    <ul>
+      <li>Design first. The plan is public before the first line of
+      code.</li>
+      <li>Every change is a pull request: the agent proposes under its
+      own identity, the checks must pass, a human must approve, and
+      the merge is the receipt.</li>
+      <li>Every figure in a document is checked against the running
+      system, or a test fails.</li>
+      <li>Every mistake becomes a rule, and the second time a fix is
+      done by hand it becomes automation.</li>
+      <li>What was left out on purpose is written down beside what was
+      built.</li>
+    </ul>
   </div>
 
   <h2>The arc</h2>
