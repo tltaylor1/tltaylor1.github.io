@@ -1,17 +1,29 @@
 # control-plane
 
-A security engineering program, built in public, by one person and a
-governed coding agent. The name is the thesis: the human is the
-control plane, directing the workloads without doing the work packet
-by packet, through architecture, standards, and gates the agent
-cannot route around. Every claim carries its record: decisions with
-their rejected alternatives, controls with their proving tests,
-releases with their provenance attestations, the agent's failures
-with what caught them, and the human's own account posture attested
-rather than assumed.
+One person's public record of building a security engineering
+program with an AI agent doing the typing and a human deciding
+everything.
+
+It exists to show, with evidence rather than claims, that agent-built
+software can be held to a professional standard: every decision
+recorded with what was rejected, every control proven by a test,
+every release attested, and every agent mistake written down with
+what caught it.
+
+What is in it:
+
+- **role-call**: an inventory and review tool for cloud service
+  accounts and roles. Import snapshots, see who owns what, run review
+  campaigns. 149 tests, 55 recorded decisions, five outside ratings.
+- **build-doctrine**: the rulebook the program builds under, and the
+  commands that score any repository against it.
+- **secure-expense-mvp**: a small finished application, hardened and
+  mutation-tested, kept as the reference.
+- **The program documents**: what is monitored, how recovery works,
+  how every repository is gated, and the next phase's plan.
 
 The rendered site is this repository, served at
-https://tltaylor1.github.io once public.
+https://tltaylor1.github.io.
 
 ## The parts
 
