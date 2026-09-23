@@ -21,3 +21,10 @@ repos:
         language: pygrep
         types: [text]
         exclude: '^\.pre-commit-config\.yaml$'
+      # The figures this site states about role-call are checked against
+      # role-call's README on main, the same gate the pipeline runs.
+      - id: figures-match
+        name: figures match role-call
+        entry: python3 scripts/check_figures.py
+        language: system
+        pass_filenames: false

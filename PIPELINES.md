@@ -1,10 +1,15 @@
 # Pipelines and infrastructure as code, the program view
 
-Every repository in the program is gated the same way in spirit and
-per its layer in substance: nothing lands without passing checks,
-every tool arrives from its canonical release and is checksum-verified
-before it runs, and what a gate may block on is decided and recorded,
-because an alarm that is always red teaches the eye to skip it.
+The program's active repositories, role-call and build-doctrine and
+this site, are gated the same way: nothing lands without passing
+required checks and a human approval, every tool arrives from its
+canonical release and is checksum-verified before it runs, and what a
+gate may block on is decided and recorded, because an alarm that is
+always red teaches the eye to skip it. The finished reference,
+secure-expense-mvp, keeps the gates it was finished with and is not
+retrofitted unless the reference itself changes; the study
+repositories carry the writing rules and their own parity checks and
+no more, because they hold no code that runs.
 
 ## The shared method
 
