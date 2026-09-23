@@ -12,9 +12,9 @@ what caught it.
 
 What is in it:
 
-- **role-call**: an inventory and review tool for cloud service
+- **manifest-identity**: an inventory and review tool for cloud service
   accounts and roles. Import snapshots, see who owns what, run review
-  campaigns. 157 tests, 62 recorded decisions, five outside ratings.
+  campaigns. 157 tests, 64 recorded decisions, five outside ratings.
 - **build-doctrine**: the rulebook the program builds under, and the
   commands that score any repository against it.
 - **secure-expense-mvp**: a small finished application, hardened and
@@ -29,7 +29,7 @@ https://tltaylor1.github.io.
 
 | Repository | What it is, and what it proves |
 |---|---|
-| [role-call](https://github.com/tltaylor1/role-call) | A governance tool for non-human identities: import cloud identity snapshots, derive state from history, put owners and review campaigns on the record. The program's flagship: building in motion, with the decision record growing under load |
+| [manifest-identity](https://github.com/manifest-identity/manifest-identity) | A governance tool for non-human identities: import cloud identity snapshots, derive state from history, put owners and review campaigns on the record. The program's flagship: building in motion, with the decision record growing under load |
 | [secure-expense-mvp](https://github.com/tltaylor1/secure-expense-mvp) | A small expense tool, finished and hardened: every request-path gate tied to the failure it prevents, mutation-tested, complete on purpose |
 | [build-doctrine](https://github.com/tltaylor1/build-doctrine) | The doctrine: standards where every rule records the incident that produced it, the enforcement mapping, and the promotion path from human check to automated gate |
 | aws-platform | Arrives with Phase 3: generic Terraform modules for an organization, its baseline, account vending, and keyless deploy federation |

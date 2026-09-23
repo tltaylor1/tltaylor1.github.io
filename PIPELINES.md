@@ -1,6 +1,6 @@
 # Pipelines and infrastructure as code, the program view
 
-The program's active repositories, role-call and build-doctrine and
+The program's active repositories, manifest-identity and build-doctrine and
 this site, are gated the same way: nothing lands without passing
 required checks and a human approval, every tool arrives from its
 canonical release and is checksum-verified before it runs, and what a
