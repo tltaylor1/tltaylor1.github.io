@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """The cross-repository figures gate.
 
-This site states role-call's test and decision counts. role-call
+This site states manifest-identity's test and decision counts. manifest-identity
 counts them with a test of its own (its D-031 and the figures rule),
 but the copy here was typed by hand and went stale twice in a month.
-This reads role-call's README on main and refuses a mismatch; with
+This reads manifest-identity's README on main and refuses a mismatch; with
 --fix it rewrites the two figures here to match.
 """
 import re
@@ -13,7 +13,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = "https://raw.githubusercontent.com/tltaylor1/role-call/main/README.md"
+SOURCE = "https://raw.githubusercontent.com/manifest-identity/manifest-identity/main/README.md"
 STATED = re.compile(r"(\d+) tests, (\d+) recorded(\s+)decisions")
 FILES = ["README.md", "index.html"]
 
@@ -24,7 +24,7 @@ def source_figures() -> tuple[int, int]:
     tests = re.search(r"\*\*(\d+) tests in \d+ files\*\*", text)
     decisions = re.search(r"\*\*(\d+) recorded decisions\*\*", text)
     if not tests or not decisions:
-        print("role-call's README no longer states its figures in the expected form")
+        print("manifest-identity's README no longer states its figures in the expected form")
         raise SystemExit(2)
     return int(tests.group(1)), int(decisions.group(1))
 
@@ -49,11 +49,11 @@ def main() -> int:
             path.write_text(new)
             print(f"{name}: {stated[0]} tests, {stated[1]} decisions -> {tests}, {decisions}")
         else:
-            print(f"{name}: states {stated[0]} tests and {stated[1]} decisions; role-call reports {tests} and {decisions}")
+            print(f"{name}: states {stated[0]} tests and {stated[1]} decisions; manifest-identity reports {tests} and {decisions}")
             failures += 1
     if failures and not fix:
         return 1
-    print(f"figures match role-call: {tests} tests, {decisions} decisions")
+    print(f"figures match manifest-identity: {tests} tests, {decisions} decisions")
     return 0
 
 
