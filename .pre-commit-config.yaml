@@ -20,7 +20,9 @@ repos:
         entry: '\b(TODO|FIXME|HACK|XXX)\b'
         language: pygrep
         types: [text]
-        exclude: '^\.pre-commit-config\.yaml$'
+        # The pipeline names the markers in order to forbid them, as this
+        # file does; both are excluded here as the pipeline excludes them.
+        exclude: '^(\.pre-commit-config\.yaml|\.github/workflows/ci\.yml)$'
       # The figures this site states about role-call are checked against
       # role-call's README on main, the same gate the pipeline runs.
       - id: figures-match
