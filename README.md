@@ -14,7 +14,7 @@ What is in it:
 
 - **role-call**: an inventory and review tool for cloud service
   accounts and roles. Import snapshots, see who owns what, run review
-  campaigns. 149 tests, 55 recorded decisions, five outside ratings.
+  campaigns. 157 tests, 62 recorded decisions, five outside ratings.
 - **build-doctrine**: the rulebook the program builds under, and the
   commands that score any repository against it.
 - **secure-expense-mvp**: a small finished application, hardened and
@@ -67,9 +67,11 @@ The things one repository cannot answer for, kept here:
 
 ![The eight phases as a timeline, with the current position marked](diagrams/phase-journey-sketch.svg)
 
-Eight phases: design; the application; local Kubernetes; the cloud
-enclave as code; managed Kubernetes; the security-gated pipeline;
-runtime detection; human-triggered remediation last, because write
-access to anyone's cloud account is trust that must be earned by
-everything before it. Phases one and two are complete and tagged
-(v0.2.0, with verifiable build provenance); Phase 3 is in progress.
+Eight phases, counted from zero so the numbers match the ones the
+repositories use: Phase 0, design; 1, the application; 2, local
+Kubernetes; 3, the cloud enclave as code; 4, managed Kubernetes; 5,
+the security-gated pipeline; 6, runtime detection; 7, human-triggered
+remediation, last, because write access to anyone's cloud account is
+trust that must be earned by everything before it. Phases 0 through 2
+are complete and tagged (v0.2.0, with verifiable build provenance);
+Phase 3 is in progress.
