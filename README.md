@@ -9,10 +9,9 @@ by a person.
 What is here:
 
 - [control-plane](https://tltaylor1.github.io/control-plane/): the
-  program. The rulebook it is built under, the application built under
-  the rulebook, and the cloud deployment to come, with the plans,
-  monitoring, and recovery documents that no single repository can
-  hold.
+  platform the applications run on, an AWS estate as code with every
+  security choice explained beside it. The plan is written; the code
+  is next.
 - [manifest-identity](https://github.com/manifest-identity/manifest-identity):
   the application. Two records about every identity in a cloud estate,
   what it holds and what a named person authorized, and the difference
