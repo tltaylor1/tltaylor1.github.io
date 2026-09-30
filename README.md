@@ -13,9 +13,12 @@ What is here:
   security choice explained beside it. The plan is written; the code
   is next.
 - [manifest-identity](https://github.com/manifest-identity/manifest-identity):
-  the application. Two records about every identity in a cloud estate,
-  what it holds and what a named person authorized, and the difference
-  between them. Seven providers read natively.
+  an application for reviewing who has access to what across an
+  organization's cloud accounts and directories. It keeps a record,
+  written by a named person, of what access each identity may have,
+  imports what the systems report, and puts every difference in front
+  of the person responsible. It never changes anything in the systems
+  it reads.
 - [build-doctrine](https://github.com/tltaylor1/build-doctrine): the
   rulebook. Standards for letting an AI agent write code a person is
   responsible for, with a scorer, a vetting tool, and a project
