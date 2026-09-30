@@ -1,0 +1,69 @@
+# The account site's gates: the writing rules, the link check, the
+# marker sweep, and the doctrine's retired-name check. Tools arrive
+# from their canonical releases and are checksum-verified before they
+# run, the same bar as every repository here.
+name: checks
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  writing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install vale, verified
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -sSfL --retry 3 --retry-delay 2 --retry-connrefused -o vale.tar.gz https://github.com/errata-ai/vale/releases/download/v3.17.0/vale_3.17.0_Linux_64-bit.tar.gz
+          echo "a903f1f60c3293fac643e0137f599a462881cc691ee19d6120dcfc786f1be86d  vale.tar.gz" | sha256sum -c -
+          tar -xzf vale.tar.gz vale
+      - name: writing rules
+        run: git ls-files -z "*.md" | xargs -0 "$RUNNER_TEMP/vale"
+      - name: forbid deferred-work markers
+        run: |
+          ! grep -rnIE "\b(TODO|FIXME|HACK|XXX)\b" --exclude-dir=.git --exclude-dir=.github --exclude=.pre-commit-config.yaml .
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install lychee, verified
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -sSfL --retry 3 --retry-delay 2 --retry-connrefused -o ly.tar.gz https://github.com/lycheeverse/lychee/releases/download/lychee-v0.24.2/lychee-x86_64-unknown-linux-gnu.tar.gz
+          echo "1f4e0ef7f6554a6ed33dd7ac144fb2e1bbed98598e7af973042fc5cd43951c9a  ly.tar.gz" | sha256sum -c -
+          tar -xzf ly.tar.gz
+      # Offline on purpose: the pipeline checks the cross-references
+      # inside this repository and fetches nothing.
+      - name: check internal links
+        run: git ls-files -z "*.md" "*.html" | xargs -0 "$RUNNER_TEMP/lychee-x86_64-unknown-linux-gnu/lychee" --offline --no-progress --include-fragments
+
+  doctrine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: tltaylor1/build-doctrine
+          ref: 110a64984ad306f4c502b571a6d359afb5cd4c81
+          path: doctrine
+          persist-credentials: false
+      - name: no retired project name in active text
+        run: python3 doctrine/scripts/check_names.py .
