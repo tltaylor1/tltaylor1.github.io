@@ -1,2 +1,4 @@
 kind: profile
 invites_contributions: false
+name_allowlist:
+  - .vale/styles/Proselint/Cliches.yml
