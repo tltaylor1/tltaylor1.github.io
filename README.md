@@ -25,7 +25,7 @@ What is here:
   template.
 - [secure-expense-mvp](https://github.com/tltaylor1/secure-expense-mvp):
   a small application that carries application security end to end,
-  built before the program as a learning exercise and kept as a
+  built before build-doctrine existed, as a learning exercise and kept as a
   reference.
 - [sample-diagrams](https://github.com/tltaylor1/sample-diagrams):
   architecture and process diagrams, kept as point-in-time
